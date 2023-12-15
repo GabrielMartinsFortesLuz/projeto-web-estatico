@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/src/CSS/layout.css">
+    <link rel="stylesheet" href="/src/CSS/reset.css">
+
+    <script defer src="/src/js/index.js"></script>
+    <script defer src="/src/js/toolbar.js"></script>
+    <script defer src="/src/js/sheet.js"></script>
+    <script defer src="/src/js/map.js"></script>
+
+</head>
+
+<body class="page-lobby">
+    <header>
+        <nav>
+            <a href="index.html">
+                <img src="../images/logo2.png" alt="logo2" class="logoIcon" style="width: 180px;">
+            </a>
+            <a href="/src/public/cadastro.html">
+                <img src="../images/icon.png" alt="icon" class="loginIcon" style="width: 40px;">
+            </a>
+        </nav>
+    </header>
+
+    <main>
+        <button class="characterSheetButton" onclick="sheetButton()">
+            <span class="arrowLeft"></span>
+        </button>
+
+        <div class="sidebar">
+            <div class="character-info">
+                <label for="characterName">Nome do personagem:</label>
+                <input type="text" id="characterName" name="characterName">
+
+                <label for="playerName">Pontos de Vida:</label>
+                <input type="text" id="playerName" name="playerName">
+
+                <label for="characterClass">Classe e Nível:</label>
+                <input type="text" id="characterClass" name="characterClass">
+
+                <label for="characterBackground">Antecedente:</label>
+                <input type="text" id="characterBackground" name="characterBackground">
+
+                <label for="characterRace">Raça:</label>
+                <input type="text" id="characterRace" name="characterRace">
+
+                <label for="characterAlignment">Alinhamento:</label>
+                <input type="text" id="characterAlignment" name="characterAlignment">
+
+                <label for="experiencePoints">Pontos de Experiência:</label>
+                <input type="text" id="experiencePoints" name="experiencePoints">
+            </div>
+
+            <div class="character-status">
+                <div class="status-item inline">
+                    <label for="strength">FOR</label>
+                    <input type="text" id="strength" name="strength" class="input-box">
+                    <input type="text" id="strengthModifier" name="strengthModifier" class="modifier-input">
+                </div>
+
+                <div class="status-item inline">
+                    <label for="dexterity">DES</label>
+                    <input type="text" id="dexterity" name="dexterity" class="input-box">
+                    <input type="text" id="dexterityModifier" name="dexterityModifier" class="modifier-input">
+                </div>
+
+                <div class="status-item inline">
+                    <label for="constitution">CON</label>
+                    <input type="text" id="constitution" name="constitution" class="input-box">
+                    <input type="text" id="constitutionModifier" name="constitutionModifier" class="modifier-input">
+                </div>
+
+                <div class="status-item inline">
+                    <label for="intelligence">INT</label>
+                    <input type="text" id="intelligence" name="intelligence" class="input-box">
+                    <input type="text" id="intelligenceModifier" name="intelligenceModifier" class="modifier-input">
+                </div>
+
+                <div class="status-item inline">
+                    <label for="wisdom">SAB</label>
+                    <input type="text" id="wisdom" name="wisdom" class="input-box">
+                    <input type="text" id="wisdomModifier" name="wisdomModifier" class="modifier-input">
+                </div>
+
+                <div class="status-item inline">
+                    <label for="charisma">CAR</label>
+                    <input type="text" id="charisma" name="charisma" class="input-box">
+                    <input type="text" id="charismaModifier" name="charismaModifier" class="modifier-input">
+                </div>
+            </div>
+        </div>
+
+        <label for="mapImageInput" class="button" id="uploadLabel">Escolher Imagem</label>
+        <input name="mapImage" type="file" accept="image/jpeg, image/png" id="mapImageInput">
+        <div class="image-upload-div"></div>
+
+        <div class="toolbar">
+            <button class="buttonToolbar" id="tokenButton1" onclick="createDraggableObject(this, 1)"></button>
+            <button class="buttonToolbar" id="tokenButton2" onclick="createDraggableObject(this, 2)"></button>
+            <button class="buttonToolbar" id="tokenButton3" onclick="createDraggableObject(this, 3)"></button>
+            <button class="buttonToolbar" id="tokenButton4" onclick="createDraggableObject(this, 4)"></button>
+            <button class="buttonToolbar" id="tokenButton5" onclick="createDraggableObject(this, 5)"></button>
+            <button class="buttonToolbar" id="tokenButton6" onclick="createDraggableObject(this, 6)"></button>
+            <button class="buttonToolbar" id="tokenButton7" onclick="createDraggableObject(this, 7)"></button>
+            <button class="buttonToolbar" id="tokenButton8" onclick="createDraggableObject(this, 8)"></button>
+            <button class="buttonToolbar" id="tokenButton9" onclick="createDraggableObject(this, 9)"></button>
+
+
+            <button class="buttonToolbarConfig" onclick="toolbarConfigPopup()"></button>
+            <button class="buttonToolbarDice" onclick="dicePopup()"></button>
+        </div>
+
+        <div class="overlay"></div>
+
+        <div class="popup toolbarConfigPopup">
+            <span id="closeToolbarConfigPopup" class="button" onclick="closePopupWindow('toolbarConfigPopup')">X</span>
+            <div class="popup-content-config">
+                <h1>Configurações dos Tokens</h1>
+                <ul>
+                    <li>
+                        <label for="tokenButton1Image" class="buttonImageToken">Botão 1:</label>
+                        <input type="file" id="tokenButton1Image" accept="image/jpeg, image/png"
+                            onchange="changeButtonImage('tokenButton1')">
+                    </li>
+                    <li>
+                        <label for="tokenButton2Image" class="buttonImageTokenn">Botão 2:</label>
+                        <input type="file" id="tokenButton2Image" accept="image/jpeg, image/png"
+                            onchange="changeButtonImage('tokenButton2')">
+                    </li>
+                    <li>
+                        <label for="tokenButton3Image" class="buttonImageToken">Botão 3:</label>
+                        <input type="file" id="tokenButton3Image" accept="image/jpeg, image/png"
+                            onchange="changeButtonImage('tokenButton3')">
+                    </li>
+                    <li>
+                        <label for="tokenButton4Image" class="buttonImageToken">Botão 4:</label>
+                        <input type="file" id="tokenButton4Image" accept="image/jpeg, image/png"
+                            onchange="changeButtonImage('tokenButton4')">
+                    </li>
+                    <li>
+                        <label for="tokenButton5Image" class="buttonImageToken">Botão 5:</label>
+                        <input type="file" id="tokenButton5Image" accept="image/jpeg, image/png"
+                            onchange="changeButtonImage('tokenButton5')">
+                    </li>
+                    <li>
+                        <label for="tokenButton6Image" class="buttonImageToken">Botão 6:</label>
+                        <input type="file" id="tokenButton6Image" accept="image/jpeg, image/png"
+                            onchange="changeButtonImage('tokenButton6')">
+                    </li>
+                    <li>
+                        <label for="tokenButton7Image" class="buttonImageToken">Botão 7:</label>
+                        <input type="file" id="tokenButton7Image" accept="image/jpeg, image/png"
+                            onchange="changeButtonImage('tokenButton7')">
+                    </li>
+                    <li>
+                        <label for="tokenButton8Image" class="buttonImageToken">Botão 8:</label>
+                        <input type="file" id="tokenButton8Image" accept="image/jpeg, image/png"
+                            onchange="changeButtonImage('tokenButton8')">
+                    </li>
+                    <li>
+                        <label for="tokenButton9Image" class="buttonImageToken">Botão 9:</label>
+                        <input type="file" id="tokenButton9Image" accept="image/jpeg, image/png"
+                            onchange="changeButtonImage('tokenButton9')">
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="popup dicePopup">
+            <span id="closeDicePopup" class="button" onclick="closePopupWindow('dicePopup')">X</span>
+            <h1 class="diceTitle">Jogue os dados</h1>
+                <section class='diceOptions'>
+                    <p id='diceRoll' class='center diceResult'>?</p>
+                </section>
+            <div class="popup-content-dice">
+                <p class='center diceOption' onclick="rollSpecificDice(4)">D4</p>
+                <p class='center diceOption' onclick="rollSpecificDice(6)">D6</p>
+                <p class='center diceOption' onclick="rollSpecificDice(8)">D8</p>
+                <p class='center diceOption' onclick="rollSpecificDice(10)">D10</p>
+                <p class='center diceOption' onclick="rollSpecificDice(12)">D12</p>
+                <p class='center diceOption' onclick="rollSpecificDice(20)">D20</p>
+                <p class='center diceOption' onclick="rollSpecificDice(100)">D100</p>
+            </div>
+        </div>
+
+    </main>
+
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grimório</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Yatra+One&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/src/CSS/layout.css">
+    <link rel="stylesheet" href="/src/CSS/reset.css">
+
+    <script defer src="/src/js/index.js"></script>
+
+    <style>
+        .yatra-font {
+            font-family: 'Yatra One', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="page-index">
+    <header>
+        <nav>
+            <a href="index.html">
+                <img src="../images/logo2.png" alt="logo1" class="logoIcon" style="width: 180px;" >
+            </a>
+            <a href="/src/public/cadastro.html">
+                <img src="../images/icon.png" alt="icon" class="loginIcon" style="width: 40px;">
+            </a>
+        </nav>
+    </header>
+    
+    <main>
+        <div class="initial-text">
+            <h1 class="yatra-font">Seja bem-vindo ao Grimório!</h1>
+            <p>Um espaço virtual que você pode usar para compartilhar seus mapas de RPG com seus amigos em tempo real.
+            Preencha e gerencie suas fichas, interaja com os elementos do cenário, tenha mais controle sobre o combate em turnos.
+            Crie uma sala e convide mais pessoas!</p>
+        </div>
+        <button id="showPopup" class="button">
+            <span>Criar sala</span>
+        </button>
+        <div id="overlay" class="overlay"></div>
+        <div id="popup" class="popup">
+            <label for="lobbyName">Nome da sala:</label>
+            <input type="text" id="lobbyName" name="lobbyName">
+            <button id="confirmButton" class="button">
+                <span>Confirmar</span>
+            </button>
+            <button id="closePopup" class="button">
+                <span>Fechar</span>
+            </button>
+        </div>
+    </main>
+</body>
+
+</html>

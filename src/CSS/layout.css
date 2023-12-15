@@ -1,0 +1,523 @@
+body {
+    font-family:  sans-serif;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    background-color: #333333; 
+    background-size: cover; /* Faz com que a imagem cubra todo o corpo */
+    color: #ffffff;
+}
+
+
+body.page-index{
+    background-image: url("/src/images/op.jpg");
+    background-size: cover;
+    color: #ffffff;
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 25px;
+    margin-top: 20px;
+    margin-left: 30px;
+    margin-right: 30px;
+    background-color: rgba(10, 10, 10, 0.);
+}
+
+header .logoIcon,
+header .loginIcon{
+    width: 20px;
+    transition: 0.2s ease-in-out;
+    margin-top: -40px;
+}
+
+header .logoIcon:hover,
+header .loginIcon:hover{
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.page-index main {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 70px;
+    margin-top: -27vh; 
+    position: relative;
+}
+
+.page-lobby main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 70px;
+    margin-top: -60px;
+}
+
+main .overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+}
+
+main .popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 300px; /* Reduzi o tamanho para um layout mais compacto */
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    background-color: #ffffff;
+    color: #333333;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+    margin-top: 10px;
+}
+
+main .popup.toolbarConfigPopup {
+    width: 60%;
+    height: 50%;
+    max-width: 600px;
+}
+
+main .popup.dicePopup {
+    width: 60%;
+    height: 50%;
+    max-width: 600px;
+}
+
+main .popup label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+main .popup input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+main .popup .button {
+    width: 100%;
+    padding: 5px;
+    border-radius: 8px;
+    border: 2px solid #565a40;
+    background-color: #565a40;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 0.7em;
+    transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease;
+}
+
+main .popup .button:hover {
+    background-color: #ffffff;
+    color: #565a40;
+    border: 2px solid #565a40;
+}
+
+main .popup #confirmButton {
+    width: 60%; 
+    margin-right: -30%; 
+    margin-left: 20%;
+    margin-top: 10%;
+}
+
+main .popup #closePopup {
+    width: 60%; 
+    margin-left: 20%; 
+    margin-right: 4%;
+    margin-top: 0%;
+}
+
+main .button {
+    width: auto;
+    height: auto;
+    padding: 10px;
+    border-radius: 8px;
+    border: 2px solid #ffffff;
+    background-color: #565a40; 
+    color: #ffffff; /* Cor do texto do botão */
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease, color 0.s ease, border 0.3s ease; /* Adicionado 'border' à transição */
+    
+}
+
+main .button:hover {
+    background-color: #6482b4;
+    color: #ffffff;
+    border: 2px solid #ffffff; /* Cor da borda no hover */
+}
+
+main div .button{
+    margin-left: 30px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+main .button span{
+    font-size: 1.7em;
+    margin-top: 0;
+}
+
+.initial-text {
+    max-width: 600px; 
+    margin: 20px 0;
+    margin-top: 11%;
+    font-size: 1.2em;
+    line-height: 1.4;
+    white-space: pre-line;
+    color: #ffffff;
+}
+
+#mapImageInput {
+    display: none;
+}
+
+#uploadLabel{
+    margin-bottom: 10px;
+}
+
+.image-upload-div{
+    width: 1000px;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.toolbar {
+    display: flex;
+    margin-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+    border-radius: 20px;
+    background-color: #565a40; /* Alterei a cor de fundo */
+}
+
+.buttonToolbar {
+    margin-top: 12px;
+    margin-left: 10px;
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    background-color: #565a40; /* Cor de fundo do botão */
+    cursor: pointer;
+    border: 2px solid #000000; /* Cor da borda do botão */
+    background-image: url('../images/zombie-token.png');
+    background-size: cover;
+}
+
+.buttonToolbarConfig {
+    margin-top: 12px;
+    margin-left: 10px;
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    background-color: #565a40; /* Cor de fundo do botão */
+    cursor: pointer;
+    border: 2px solid #000000; /* Cor da borda do botão */
+    background-image: url('../images/gear1.jpg'); /* Adicione esta linha para a imagem de fundo */
+    background-size: cover;
+}
+
+.buttonToolbarDice {
+    margin-top: 12px;
+    margin-left: 10px;
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    background-color: #565a40; /* Cor de fundo do botão */
+    cursor: pointer;
+    border: 2px solid #000000; /* Cor da borda do botão */
+    background-image: url('../images/d20.jpg'); /* Adicione esta linha para a imagem de fundo */
+    background-size: cover;
+}
+
+.buttonToolbar:hover {
+    border: 2px solid #ffffff;
+}
+
+.buttonToolbarConfig:hover {
+    border: 2px solid #ffffff;
+}
+
+.buttonToolbarDice:hover {
+    border: 2px solid #ffffff;
+}
+
+.draggable {
+    position: absolute;
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    background-image: url('../images/zombie-token.png');
+    background-size: cover;
+    cursor: pointer;
+}
+
+.dragging {
+    opacity: 0.7;
+}
+
+.characterSheetButton {
+    position: fixed;
+    top: 50%;
+    right: 0px;
+    width: 30px;
+    height: 70px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 2;
+    transition: right 0.3s ease-in-out;
+}
+
+.characterSheetButton .arrowLeft {
+    display: inline-block;
+    border: solid #ffffff;
+    border-width: 0 3px 3px 0;
+    padding: 3px;
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -600px;
+    width: 600px;
+    height: 100%;
+    background-color: #565a40; /* Alterei a cor de fundo */
+    padding: 20px;
+    z-index: 1;
+    transition: right 0.3s ease-in-out;
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif; /* Fonte alterada para Poppins */
+}
+
+.sidebar label {
+    display: block;
+    font-size: 1.2em;
+    margin-bottom: 5px;
+    color: #ffffff; /* Cor do texto do rótulo */
+}
+
+.sidebar input {
+    width: calc(100% - 20px);
+    padding: 8px;
+    margin-bottom: 16px;
+    border: 2px solid #ffffff; /* Cor da borda do campo de entrada */
+    border-radius: 4px;
+    background-color: #565a40; /* Cor de fundo do campo de entrada */
+    color: #ffffff; /* Cor do texto do campo de entrada */
+}
+
+.sidebar input:focus {
+    outline: none;
+    border-color: #ffffff; /* Cor da borda quando em foco */
+}
+
+.sidebar .button {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 2px solid #ffffff;
+    background-color: #333333; /* Cor de fundo do botão */
+    color: #ffffff; /* Cor do texto do botão */
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease;
+}
+
+.sidebar .button:hover {
+    background-color: #ffffff;
+    color: #333333;
+    border: 2px solid #ffffff;
+}
+
+.sidebar textarea {
+    width: calc(100% - 20px);
+    padding: 8px;
+    margin-bottom: 16px;
+    border: 2px solid #ffffff; /* Cor da borda do campo de texto */
+    border-radius: 4px;
+    background-color: #565a40; /* Cor de fundo do campo de texto */
+    color: #ffffff; /* Cor do texto do campo de texto */
+}
+
+.sidebar textarea:focus {
+    outline: none;
+    border-color: #ffffff; /* Cor da borda quando em foco */
+}
+
+.sidebar select {
+    width: calc(100% - 20px);
+    padding: 8px;
+    margin-bottom: 16px;
+    border: 2px solid #ffffff; /* Cor da borda do campo de seleção */
+    border-radius: 4px;
+    background-color: #565a40; /* Cor de fundo do campo de seleção */
+    color: #ffffff; /* Cor do texto do campo de seleção */
+}
+
+.sidebar select:focus {
+    outline: none;
+    border-color: #ffffff; /* Cor da borda quando em foco */
+}
+
+.sidebar.opened {
+    right: 0;
+}
+
+
+/*Estilização da função de dado*/
+.center {
+    margin-top: 0.625rem;
+    text-align: center;
+}
+
+#imgDice {
+    width: 200px;
+}
+
+#btnRoll {
+    padding: 5px;
+    border: 0;
+    border-radius: 5px;
+    background: #565a40;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#btnRoll:active {
+    background-color: #ffffff;
+    box-shadow: 1px 1px 5px #565a40;
+    color: #565a40;
+}
+
+#btnRoll:hover {
+    box-shadow: 1px 1px 5px #565a40;
+}
+
+#sorteado {
+    background: #565a40;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 50%;
+    margin-bottom: 0.5rem;
+}
+
+.diceTitle {
+    text-align: center;
+    margin-top: -40px; 
+    font-size: 150%;
+}
+
+/* Adicione isso ao seu arquivo layout.css */
+.diceOptions {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.diceOption {
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 50%;
+    background-color: #565a40;
+    color: #ffffff;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.diceOption:hover {
+    background-color: #ffffff;
+    color: #565a40;
+}
+
+
+.dicePopup button {
+    display: inline-block;
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    border: 2px solid #565a40;
+    background-color: #ffffff;
+    color: #565a40;
+    font-size: 1em;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease;
+}
+
+.dicePopup button:hover {
+    background-color: #565a40;
+    color: #ffffff;
+    border: 2px solid #565a40;
+}
+
+main .character-info {
+    margin-top: -10px;
+    padding: 20px;
+    border: 2px solid #ffffff;
+    border-radius: 8px;
+    background-color: #333333;
+    color: #ffffff;
+}
+
+main .character-status {
+    margin-top: 10px;
+    padding: 20px;
+    border: 2px solid #ffffff;
+    border-radius: 8px;
+    background-color: #333333;
+    color: #ffffff;
+}
+
+.character-status .status-item {
+    display: inline-block;
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+
+.character-status .input-box,
+.character-status .modifier-input {
+    width: 80px; /* Ajuste a largura conforme necessário */
+    height: 40px; /* Ajuste a altura conforme necessário */
+    margin-right: 10px;
+}
+
+.character-status .modifier-input {
+    width: 40px; /* Ajuste a largura conforme necessário */
+    font-size: 16px;
+}
+
+main .popup-content-config {
+    max-height: calc(100% - 40px); /* Ajuste conforme necessário */
+    overflow-y: auto;
+    margin-top: 20px;
+}
+
+main .popup-content-dice {
+    max-height: calc(100% - 40px); /* Ajuste conforme necessário */
+    overflow-y: auto;
+}
+
